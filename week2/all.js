@@ -43,13 +43,17 @@ function App() {
     if (Input === "") {
       alert("請輸入代辦事項");
     } else {
-      setTodo([
-        ...todo,
-        {
-          name: Input,
-          state: false,
-        },
-      ]);
+      if (todo.find((item) => item.name === Input)) {
+        alert("已有此代辦事項");
+      } else {
+        setTodo([
+          ...todo,
+          {
+            name: Input,
+            state: false,
+          },
+        ]);
+      }
     }
   }
 
